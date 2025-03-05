@@ -33,6 +33,13 @@
       "matchManagers": [
         "dockerfile"
       ]
+    },
+    {
+      "groupName": "Kubectl Dep Versions",
+      "groupSlug": "kubectl-bumps",
+      "matchDepNames": [
+        "kubernetes/kubernetes"
+      ]
     }
   ],
   "customManagers": [
