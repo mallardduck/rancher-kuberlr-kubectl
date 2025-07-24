@@ -106,6 +106,7 @@ jobs:
             --title "${PR_TITLE}" \
             --body "${PR_BODY}" \
             --label "status/auto-created" \
+            --label "dependencies" \
             --base "${{ inputs.target_branch }}" \
             --head "${UPDATE_BRANCH}")
 
