@@ -13,6 +13,7 @@ jobs:
   trigger-updates:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 2
       matrix:
         target_branch:
           - main
