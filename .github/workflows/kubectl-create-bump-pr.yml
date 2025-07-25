@@ -46,7 +46,7 @@ jobs:
           fi
           echo "is_supported=true" >> $GITHUB_ENV
 
-      - name: Pull script from main branch
+      - name: "Pull script from `${{ inputs.script_ref || 'main' }}` branch"
         if: ${{ env.is_supported == 'true' }}
         run: |
           git fetch origin ${{ inputs.script_ref || 'main' }}
@@ -68,6 +68,8 @@ jobs:
           # Read log for PR title and clean up log file
           LOG_FILE="kubectl-version.txt.log"
           if [[ -f "$LOG_FILE" ]]; then
+            echo "Log file exists, parsing for title text..."
+            cat "$LOG_FILE"
             # Check if the log file exists and is not empty
             if [[ -s "$LOG_FILE" ]]; then
               LOG_TITLE=$(cat "$LOG_FILE" | awk '{printf "%s%s", (NR==1?"":", "), $0} END{print ""}')
