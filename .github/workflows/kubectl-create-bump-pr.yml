@@ -46,7 +46,7 @@ jobs:
           fi
           echo "is_supported=true" >> $GITHUB_ENV
 
-      - name: Pull script from main branch
+      - name: "Pull script from `${{ inputs.script_ref || 'main' }}` branch"
         if: ${{ env.is_supported == 'true' }}
         run: |
           git fetch origin ${{ inputs.script_ref || 'main' }}
